@@ -1,6 +1,13 @@
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function HomePage() {
+  const router = useRouter(); // programitcally set the route
+  const handleClick = () => {
+    console.log("Placing order");
+    router.push("/product"); // programitcally navigate to product page
+  };
   return (
     <>
       <Head>
@@ -11,6 +18,17 @@ export default function HomePage() {
 
       <div className="mt-4 ml-8">
         <h1 className="text-3xl">Hello from home</h1>
+        <Link href="/blog">
+          <a>Blog page</a>
+        </Link>
+        <br />
+        <Link href="/product">
+          <a>Product page</a>
+        </Link>
+        <br />
+        <button className="text-blue-700" onClick={handleClick}>
+          Place order
+        </button>
       </div>
     </>
   );

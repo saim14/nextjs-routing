@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function ProductPage() {
   return (
@@ -10,11 +11,20 @@ export default function ProductPage() {
       </Head>
 
       <div className="mt-4 ml-8">
+        <Link href="/">
+          <a>Go back Home page</a>
+        </Link>
         <h1 className="text-3xl">Product Page</h1>
         <ul>
-          <li>Product 1</li>
-          <li>Product 2</li>
-          <li>Product 3</li>
+          <Link href="/product/1">
+            <li className="cursor-pointer">Product 1</li>
+          </Link>
+          <Link href="/product/2">
+            <li className="cursor-pointer">Product 2</li>
+          </Link>
+          <Link href="/product/3" replace>
+            <li className="cursor-pointer">Product 3</li>
+          </Link>
         </ul>
       </div>
     </>
